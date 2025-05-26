@@ -2592,7 +2592,7 @@ html {
 }
 
 .restaurant-promo {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Chope_Group5_FIX/chope/assets/picture.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('picture.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
