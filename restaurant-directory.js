@@ -30,7 +30,7 @@
                 rating: 4.8,
                 reviews: 144,
                 address: "Jl. Purworejo No.23, RT.1/RW.5, Dukuh Atas, Menteng, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310",
-                image: "../assets/Sola_Directory.webp",
+                image: "Sola_Directory.webp",
                 cuisine: ["Italian", "Fine Dining"],
                 location: "Menteng",
                 price: 3
@@ -41,7 +41,7 @@
                 rating: 4.8,
                 reviews: 144,
                 address: "Row 9, Jl. Bulungan No.9, RW.8, Kramat Pela, Kebayoran Baru, Jakarta, 12130",
-                image: "../assets/PotBoy_directory.jpg",
+                image: "PotBoy_directory.jpg",
                 cuisine: ["Korean", "Hot Pot"],
                 location: "Kebayoran Baru",
                 price: 2
@@ -52,7 +52,7 @@
                 rating: 4.8,
                 reviews: 144,
                 address: "Bintaro Jaya, Jl. Cempaka Raya No.8 Sektor 2, Rengas, Kec. Ciputat Tim, Kota Tangerang Selatan, Banten 15412",
-                image: "../assets/LaAlcienda_Directory.jpg",
+                image: "LaAlcienda_Directory.jpg",
                 cuisine: ["Spanish", "European"],
                 location: "Bintaro",
                 price: 3
@@ -63,7 +63,7 @@
                 rating: 4.8,
                 reviews: 144,
                 address: "Mall PIK Avenue, Jl. Pantai Indah Kapuk Boulevard Lt. 1 RT.6/RW.2, Kamal Muara, Kec. Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
-                image: "../assets/MayStar_Directory.jpg",
+                image: "MayStar_Directory.jpg",
                 cuisine: ["Chinese", "Seafood"],
                 location: "PIK Avenue",
                 price: 2
