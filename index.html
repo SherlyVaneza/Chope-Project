@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chope with Grab - Discover Restaurants</title>
+    <link rel="stylesheet" href="/Chope_Group5_FIX/chope/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="chope">Chope</span>
+                <span class="grab">with Grab</span>
+                <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="restaurant-directory.html">Restaurant Directory</a></li>
+                <li><a href="#discounts">Exclusive Discounts <i class="fas fa-chevron-down dropdown-arrow"></i></a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#rewards">Rewards</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <!-- Location Selector -->
+                <div class="location-selector-container">
+                    <button type="button" class="location-selector dropdown-trigger" data-dropdown="location" id="locationSelector">
+                        <span id="selectedLocation">Jakarta</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu location-dropdown" id="locationDropdown">
+                        <div class="location-section">
+                            <div class="location-header">
+                                <span class="location-title">Select Location</span>
+                            </div>
+                            <div class="location-list">
+                                <button type="button" class="location-option" onclick="selectLocation('Singapore')">Singapore</button>
+                                <button type="button" class="location-option active" onclick="selectLocation('Jakarta')">Jakarta</button>
+                                <button type="button" class="location-option" onclick="selectLocation('Jakarta (Bahasa Indonesia)')">Jakarta (Bahasa Indonesia)</button>
+                                <button type="button" class="location-option" onclick="selectLocation('Bali')">Bali</button>
+                                <button type="button" class="location-option" onclick="selectLocation('Bali (Bahasa Indonesia)')">Bali (Bahasa Indonesia)</button>
+                                <button type="button" class="location-option" onclick="selectLocation('Bangkok')">Bangkok</button>
+                                <button type="button" class="location-option" onclick="selectLocation('กรุงเทพมหานคร')">กรุงเทพมหานคร</button>
+                                <button type="button" class="location-option" onclick="selectLocation('Phuket')">Phuket</button>
+                                <button type="button" class="location-option" onclick="selectLocation('ภูเก็ต')">ภูเก็ต</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auth Button with Dropdown -->
+            <div class="auth-dropdown-container">
+                <button class="auth-btn dropdown-trigger" data-dropdown="authChoice" id="authButton">
+                    <i class="fas fa-user"></i>
+                    Sign Up or Login
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu auth-choice-dropdown" id="authChoiceDropdown">
+                    <div class="auth-choice-section">
+                        <a href="register.html" class="auth-choice-option">
+                            <i class="fas fa-user-plus"></i>
+                            <div class="auth-choice-content">
+                                <span class="auth-choice-title">Sign Up</span>
+                                <span class="auth-choice-subtitle">Create a new account</span>
+                            </div>
+                        </a>
+                        <a href="login.html" class="auth-choice-option">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <div class="auth-choice-content">
+                                <span class="auth-choice-title">Login</span>
+                                <span class="auth-choice-subtitle">Access your account</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </nav>
+
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <!-- Mobile Auth Button with Dropdown -->
+                <div class="auth-dropdown-container mobile-auth-container">
+                    <button class="auth-btn mobile-auth dropdown-trigger" data-dropdown="authChoiceMobile" id="authButtonMobile">
+                        <i class="fas fa-user"></i>
+                        Sign Up or Login
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu auth-choice-dropdown" id="authChoiceMobileDropdown">
+                        <div class="auth-choice-section">
+                            <a href="register.html" class="auth-choice-option">
+                                <i class="fas fa-user-plus"></i>
+                                <div class="auth-choice-content">
+                                    <span class="auth-choice-title">Sign Up</span>
+                                    <span class="auth-choice-subtitle">Create a new account</span>
+                                </div>
+                            </a>
+                            <a href="login.html" class="auth-choice-option">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <div class="auth-choice-content">
+                                    <span class="auth-choice-title">Login</span>
+                                    <span class="auth-choice-subtitle">Access your account</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="mobile-nav-links">
+                    <a href="../html/restaurant-directory.html" class="mobile-nav-link">Restaurant Directory</a>
+                    <div class="mobile-nav-dropdown">
+                        <a href="#discounts" class="mobile-nav-link">Exclusive Discounts</a>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <a href="#deals" class="mobile-nav-link">Deals</a>
+                    <a href="#guides" class="mobile-nav-link">Guides</a>
+                    <a href="#rewards" class="mobile-nav-link">Rewards</a>
+                </nav>
+
+                <div class="mobile-location">
+                    <div class="location-selector-container">
+                        <button type="button" class="location-selector dropdown-trigger" data-dropdown="mobileLocation" id="mobileLocationSelector">
+                            <span id="selectedLocationMobile">Jakarta</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu location-dropdown" id="mobileLocationDropdown">
+                            <div class="location-section">
+                                <div class="location-header">
+                                    <span class="location-title">Select Location</span>
+                                </div>
+                                <div class="location-list">
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Singapore')">Singapore</button>
+                                    <button type="button" class="location-option active" onclick="selectLocationMobile('Jakarta')">Jakarta</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Jakarta (Bahasa Indonesia)')">Jakarta (Bahasa Indonesia)</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Bali')">Bali</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Bali (Bahasa Indonesia)')">Bali (Bahasa Indonesia)</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Bangkok')">Bangkok</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('กรุงเทพมหานคร')">กรุงเทพมหานคร</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('Phuket')">Phuket</button>
+                                    <button type="button" class="location-option" onclick="selectLocationMobile('ภูเก็ต')">ภูเก็ต</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Mobile Card Layout -->
+            <div class="mobile-search-card">
+                <h1>Discover and book restaurants</h1>
+                
+                <form class="mobile-search-form" id="searchForm">
+                    <div class="search-input-container">
+                        <input type="text" class="mobile-search-input" placeholder="Search for cuisines and locations">
+                    </div>
+                    
+                    <!-- Guests Section -->
+                    <div class="mobile-form-section">
+                        <button type="button" class="mobile-form-field dropdown-trigger" data-dropdown="guests">
+                            <div class="field-content">
+                                <span class="field-label">Guests</span>
+                                <span class="field-value" id="guestDisplay">2 Pax</span>
+                            </div>
+                        </button>
+                        <div class="dropdown-menu guest-dropdown" id="guestsDropdown">
+                            <div class="guest-section">
+                                <div class="guest-header">
+                                    <span class="guest-title">Guests</span>
+                                    <span class="guest-count" id="guestCount">2 Pax</span>
+                                </div>
+                                
+                                <div class="guest-controls">
+                                    <div class="guest-row">
+                                        <span class="guest-type">Adults</span>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn minus" onclick="changeGuests('adults', -1)">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <span class="counter-value" id="adultsCount">2</span>
+                                            <button type="button" class="counter-btn plus" onclick="changeGuests('adults', 1)">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="guest-row">
+                                        <span class="guest-type">Child</span>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn minus" onclick="changeGuests('children', -1)">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <span class="counter-value" id="childrenCount">0</span>
+                                            <button type="button" class="counter-btn plus" onclick="changeGuests('children', 1)">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date and Time Row -->
+                    <div class="mobile-date-time-row">
+                        <button type="button" class="mobile-form-field half-width dropdown-trigger" data-dropdown="date">
+                            <div class="field-content">
+                                <span class="field-label">Date</span>
+                                <span class="field-value" id="dateDisplay">Today, 24 May 2025</span>
+                            </div>
+                        </button>
+                        <div class="dropdown-menu date-dropdown" id="dateDropdown">
+                            <div class="date-section">
+                                <div class="date-header">
+                                    <span class="date-title">Date</span>
+                                    <span class="date-selected" id="selectedDate">Today, 24 May 2025</span>
+                                </div>
+                                
+                                <div class="date-selector">
+                                    <div class="date-tabs">
+                                        <button type="button" class="date-tab active" onclick="selectDateTab('today')">Today</button>
+                                        <button type="button" class="date-tab" onclick="selectDateTab('tomorrow')">Tomorrow</button>
+                                    </div>
+                                    <div class="calendar">
+                                        <div class="calendar-header">
+                                            <button type="button" class="calendar-nav" onclick="changeMonth(-1)">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <span id="monthYear">May 2025</span>
+                                            <button type="button" class="calendar-nav" onclick="changeMonth(1)">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="calendar-grid">
+                                            <div class="calendar-days">
+                                                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                                            </div>
+                                            <div class="calendar-dates" id="calendarDates">
+                                                <!-- Calendar dates will be generated by JavaScript -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="mobile-form-field half-width dropdown-trigger" data-dropdown="time">
+                            <div class="field-content">
+                                <span class="field-label">Time</span>
+                                <span class="field-value" id="timeDisplay">4:45 pm</span>
+                            </div>
+                        </button>
+                        <div class="dropdown-menu time-dropdown" id="timeDropdown">
+                            <div class="time-section">
+                                <div class="time-header">
+                                    <span class="time-title">Time</span>
+                                    <span class="time-selected" id="selectedTime">4:45 pm</span>
+                                </div>
+                                
+                                <div class="time-selector">
+                                    <div class="time-slots">
+                                        <button type="button" class="time-slot" onclick="selectTime('4:00 pm')">4:00 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('4:15 pm')">4:15 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('4:30 pm')">4:30 pm</button>
+                                        <button type="button" class="time-slot active" onclick="selectTime('4:45 pm')">4:45 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('5:00 pm')">5:00 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('5:15 pm')">5:15 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('5:30 pm')">5:30 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('5:45 pm')">5:45 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('6:00 pm')">6:00 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('6:15 pm')">6:15 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('6:30 pm')">6:30 pm</button>
+                                        <button type="button" class="time-slot" onclick="selectTime('6:45 pm')">6:45 pm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="mobile-search-btn">
+                        <i class="fas fa-search"></i> Let's Go
+                    </button>
+                </form>
+            </div>
+
+            <!-- Desktop Search Form -->
+            <form class="desktop-search-form" id="desktopSearchForm">
+                <input type="text" class="search-input" placeholder="Search for cuisines and locations">
+                
+                <div class="search-dropdown-container">
+                    <button type="button" class="search-select dropdown-trigger" data-dropdown="guestsDesktop">
+                        <div class="dropdown-content">
+                            <span class="dropdown-label">Guests</span>
+                            <span class="dropdown-value" id="guestDisplayDesktop">2 Pax</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu guest-dropdown" id="guestsDesktopDropdown">
+                        <div class="guest-section">
+                            <div class="guest-header">
+                                <span class="guest-title">Guests</span>
+                                <span class="guest-count" id="guestCountDesktop">2 Pax</span>
+                            </div>
+                            
+                            <div class="guest-controls">
+                                <div class="guest-row">
+                                    <span class="guest-type">Adults</span>
+                                    <div class="counter-controls">
+                                        <button type="button" class="counter-btn minus" onclick="changeGuestsDesktop('adults', -1)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <span class="counter-value" id="adultsCountDesktop">2</span>
+                                        <button type="button" class="counter-btn plus" onclick="changeGuestsDesktop('adults', 1)">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="guest-row">
+                                    <span class="guest-type">Child</span>
+                                    <div class="counter-controls">
+                                        <button type="button" class="counter-btn minus" onclick="changeGuestsDesktop('children', -1)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <span class="counter-value" id="childrenCountDesktop">0</span>
+                                        <button type="button" class="counter-btn plus" onclick="changeGuestsDesktop('children', 1)">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Date/Time (hidden on mobile) -->
+                <div class="search-dropdown-container desktop-date">
+                    <button type="button" class="search-select dropdown-trigger" data-dropdown="date2">
+                        <div class="dropdown-content">
+                            <span class="dropdown-label">Date</span>
+                            <span class="dropdown-value" id="dateDisplay2">Today, 24 May 2025</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu date-dropdown" id="date2Dropdown">
+                        <div class="date-section">
+                            <div class="date-header">
+                                <span class="date-title">Date</span>
+                                <span class="date-selected" id="selectedDate2">Today, 24 May 2025</span>
+                            </div>
+                            
+                            <div class="date-selector">
+                                <div class="date-tabs">
+                                    <button type="button" class="date-tab active" onclick="selectDateTab('today')">Today</button>
+                                    <button type="button" class="date-tab" onclick="selectDateTab('tomorrow')">Tomorrow</button>
+                                </div>
+                                <div class="calendar">
+                                    <div class="calendar-header">
+                                        <button type="button" class="calendar-nav" onclick="changeMonth(-1)">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </button>
+                                        <span id="monthYear2">May 2025</span>
+                                        <button type="button" class="calendar-nav" onclick="changeMonth(1)">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                    <div class="calendar-grid">
+                                        <div class="calendar-days">
+                                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                                        </div>
+                                        <div class="calendar-dates" id="calendarDates2">
+                                            <!-- Calendar dates will be generated by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-dropdown-container desktop-time">
+                    <button type="button" class="search-select dropdown-trigger" data-dropdown="time2">
+                        <div class="dropdown-content">
+                            <span class="dropdown-label">Time</span>
+                            <span class="dropdown-value" id="timeDisplay2">4:45 pm</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu time-dropdown" id="time2Dropdown">
+                        <div class="time-section">
+                            <div class="time-header">
+                                <span class="time-title">Time</span>
+                                <span class="time-selected" id="selectedTime2">4:45 pm</span>
+                            </div>
+                            
+                            <div class="time-selector">
+                                <div class="time-slots">
+                                    <button type="button" class="time-slot" onclick="selectTime2('4:00 pm')">4:00 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('4:15 pm')">4:15 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('4:30 pm')">4:30 pm</button>
+                                    <button type="button" class="time-slot active" onclick="selectTime2('4:45 pm')">4:45 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('5:00 pm')">5:00 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('5:15 pm')">5:15 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('5:30 pm')">5:30 pm</button>
+                                    <button type="button" class="time-slot" onclick="selectTime2('5:45 pm')">5:45 pm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i> Let's Go
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 class="about-title">About Chope</h2>
+                
+                <div class="about-text">
+                    <p>Chope is dining made easy. Our leading dining platform connects diners to restaurants for memorable experiences, more often.</p>
+                    
+                    <p>Having seated more than 100 million diners, Chope understands what gets people excited about dining out, and how best to maximise business for over 9,000 restaurant partners. With Chope, diners can discover restaurants, make bookings, save with deals, and order pick-up and delivery on the app. Chope's demand generating diner platform is seamlessly incorporated with a suite of integrated restaurant solutions that encompass reservation, call, queue, and table management.</p>
+                    
+                    <p>Founded in 2011 and currently operating in three countries (Singapore, Thailand, and Indonesia), Chope has grown consistently over the past 14 years. Powering this growth are Chope's close relationships with top restaurant partners, including Commonwealth Concepts, The Lo & Behold Group, Tung Lok Group and Plataran Group. Chope's ecosystem is further enriched by key partnerships with companies such as Alipay, Google, TripAdvisor, Meituan Dianping, Grab, and CapitaLand.</p>
+                </div>
+
+                <button class="read-more-btn" id="readMoreBtn">Read More</button>
+
+                <div class="expanded-content" id="expandedContent">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h3>DISCOVERY MADE EASY</h3>
+                            <p>With over 13,000 restaurants listed on Chope, we'll get you from craving contentment. Our discovery platform gives you a plethora of dining options, where you're bougie or on a budget. Discover new restaurants, familiar favourites, hidden gems, neighbourhood haunts, and more.</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>DEALS MADE EASY</h3>
+                            <p>Food tastes better with a side of savings! Chope lets you save on what you crave with discounted restaurant deals. The next time you think of dining out, check with Chope to get in on dining vouchers, buy 1 get 1 free deals, off-peak discounts, set menu savings, and the like!</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>ORDER & PAY MADE EASY</h3>
+                            <p>Some things are worth the wait, but you don't have to do so standing up or waiting in line. Chope's Order & Pay solution at hawkers, fast food joints, and restaurants takes the chore out of the chow. Easily order food online and pick-up your meals on the Chope app.</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>RESERVATIONS MADE EASY</h3>
+                            <p>Book a restaurant anytime, anywhere. Choose a restaurant, select a date and time, and you're good to go! View restaurant availability and include special requests too. Not only will you secure restaurant reservations, you'll earn Chope-Dollars after each fulfilled reservation. Grow your Chope-Dollars count and use them to redeem rewards as part of Chope's loyalty programme.</p>
+                        </div>
+                    </div>
+
+                    <button class="read-less-btn" id="readLessBtn">Read Less</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Restaurants Section -->
+    <section class="discover-section">
+        <div class="discover-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">Discover Restaurants</h2>
+                    <p class="section-subtitle">
+                        Seasonal campaigns and trending restaurants! 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="sliderContainer">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Card 1: Exclusive Offers -->
+                    <div class="restaurant-card">
+                        <div class="card-image-container">
+                            <img src="/Chope_Group5_FIX/chope/assets/exclusiveOffers.webp" alt="Exclusive Offers" class="card-image">
+                            <div class="card-overlay">
+                                <div class="card-logo">Chope</div>
+                                <div class="card-badge exclusive-badge">
+                                    <div>EXCLUSIVE</div>
+                                    <div>OFFERS</div>
+                                </div>
+                                <div class="card-location">JAKARTA</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Exclusive Offers</h3>
+                            <p>Enjoy these exclusive offers when you book through the Chope website or app!</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Top 100 -->
+                    <div class="restaurant-card">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=240&fit=crop" alt="Top 100 Restaurants" class="card-image">
+                            <div class="card-overlay">
+                                <div class="card-badge top100-badge">TOP 100</div>
+                                <div class="card-subtitle">RESTAURANTS</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Jakarta's Best Restaurants</h3>
+                            <p>The top 100 restaurants on Chope</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Instagram Worthy -->
+                    <div class="restaurant-card">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=240&fit=crop" alt="Instagram Worthy Spots" class="card-image">
+                            <div class="card-overlay">
+                                <div class="card-badge insta-badge">
+                                    <div>INSTA</div>
+                                    <div>WORTHY</div>
+                                </div>
+                                <div class="card-subtitle">SPOT GUIDE</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Instagramable Spot</h3>
+                            <p>Where every dish is picture perfect 📸</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Dining Vouchers -->
+                    <div class="restaurant-card">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=240&fit=crop" alt="Dining Vouchers" class="card-image">
+                            <div class="card-overlay">
+                                <div class="card-badge deals-badge">
+                                    <div>NEWEST</div>
+                                    <div>DEALS</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Dining Vouchers</h3>
+                            <p>Get amazing deals at restaurants and cafes!</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: New on Chope -->
+                    <div class="restaurant-card">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="New on Chope" class="card-image">
+                            <div class="card-overlay">
+                                <div class="card-badge new-badge">
+                                    <div>NEW ON</div>
+                                    <div>CHOPE</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>New on Chope</h3>
+                            <p>Discover culinary gems at Jakarta's newest restaurants!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="mobileDots"></div>
+        </div>
+    </section>
+
+    <!-- Highly Recommended Section -->
+    <section class="recommended-section">
+        <div class="recommended-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">Highly Recommended</h2>
+                    <p class="section-subtitle">
+                        Curated restaurants for you to try! 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="recommendedPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="recommendedNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="recommendedSliderContainer">
+                <div class="slider-track" id="recommendedSliderTrack">
+                    <!-- Restaurant 1: Arts Café by Raffles Jakarta -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="Arts Café by Raffles Jakarta" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Arts Café by Raffles Jakarta</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.7 (150 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Exclusive offer: 30% OFF on Buffet</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 2: Plan B - Spanish Resto -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=240&fit=crop" alt="Plan B - Spanish Resto" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Plan B - Spanish Resto (Permata Senayan)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (144 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">An authentic taste of Spain with Tapas and Sangria</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 3: Twelve Chinese Dining -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="/Chope_Group5_FIX/chope/assets/twelve chinese dining.jpg" alt="Twelve Chinese Dining" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Twelve Chinese Dining</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.6 (71 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Indulge in an artful culinary journey</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 4: Sugar & Spice -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=240&fit=crop" alt="Sugar & Spice" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Sugar & Spice (InterContinental Jakarta Pondok Indah)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (154 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Enjoy a free buffet for every group of 2 diners!</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 5: Sailendra -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=240&fit=crop" alt="Sailendra" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Sailendra (JW Marriott Hotel Jakarta)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.5 (451 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Enjoy Buy 1 Dine 2 Lunch/Dinner Buffet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="recommendedMobileDots"></div>
+        </div>
+    </section>
+
+        <!-- Hot Dining Spots Section -->
+    <section class="hot-spots-section">
+        <div class="hot-spots-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">Hot Dining Spots</h2>
+                    <p class="section-subtitle">
+                        Restaurants people are talking about. 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="hotSpotsPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="hotSpotsNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="hotSpotsSliderContainer">
+                <div class="slider-track" id="hotSpotsSliderTrack">
+                    <!-- Restaurant 1: Okuzono Japanese Dining -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=240&fit=crop" alt="Okuzono Japanese Dining" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Okuzono Japanese Dining</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (123 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">An authentic teppanyaki concept at Senopati</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 2: Asia Restaurant -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=240&fit=crop" alt="Asia Restaurant" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Asia Restaurant (The Ritz-Carlton Jakarta, Mega Kuningan)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.7 (91 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Easter Weekend Brunch: 19 - 20 April 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 3: PA.SO.LA Restaurant -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="PA.SO.LA Restaurant" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>PA.SO.LA Restaurant (The Ritz-Carlton Jakarta, Pacific Place)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (140 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Enjoy Pay 2 Dine 3 on Mediterranean Brunch</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 4: Soichiro Irori Style Japanese Steakhouse -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=240&fit=crop" alt="Soichiro Irori Style Japanese Steakhouse" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Soichiro Irori Style Japanese Steakhouse</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.6 (37 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Savor the richness if perfection</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 5: Chanba Private Room Grill -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="/Chope_Group5_FIX/chope/assets/chanba.jpg" alt="Chanba Private Room Grill" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Chanba Private Room Grill (Puri)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.6 (6 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">All-in-one private grill</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="hotSpotsMobileDots"></div>
+        </div>
+    </section>
+
+    <!-- New On Chope Section -->
+    <section class="new-chope-section">
+        <div class="new-chope-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">New on Chope</h2>
+                    <p class="section-subtitle">
+                        Newly-listed restaurants you don't want to miss. 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="newChopePrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="newChopeNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="newChopeSliderContainer">
+                <div class="slider-track" id="newChopeSliderTrack">
+                    <!-- Restaurant 1: Sola Ristorante & Bisteccheria -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=240&fit=crop" alt="Sola Ristorante & Bisteccheria" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Sola Ristorante & Bisteccheria</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">5.0 (8 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">An authentic Italian dining destination specializing in...</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 2: The Square -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=240&fit=crop" alt="The Square" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>The Square (Novotel Jakarta Gajah Mada)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.5 (12 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">The Square is an elegant restaurant that offers delici...</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 3: Le Bar -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=240&fit=crop" alt="Le Bar" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Le Bar (Novotel Jakarta Gajah Mada)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">5.0 (3 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Le Bar is a friendly, intimate bar serving a wide select...</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 4: Pot Boy Aru -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=240&fit=crop" alt="Pot Boy Aru" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Pot Boy Aru (Row 9)</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">5.0 (1 Review)</span>
+                            </div>
+                            <p class="restaurant-offer">Pot Boy Aru features "Chaos Cooking," an experimen...</p>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant 5: Salted Olive -->
+                    <div class="restaurant-recommendation-card">
+                        <div class="recommendation-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="Salted Olive" class="recommendation-image">
+                        </div>
+                        <div class="recommendation-content">
+                            <h3>Salted Olive</h3>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-text">4.7 (15 Reviews)</span>
+                            </div>
+                            <p class="restaurant-offer">Salted Olive at Dharmawangsa serves modern dishe...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="newChopeMobileDots"></div>
+        </div>
+    </section>
+
+    <!-- Popular Guides Section -->
+    <section class="popular-guides-section">
+        <div class="popular-guides-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">Popular Guides</h2>
+                    <p class="section-subtitle">
+                        Eat your way around the city, wherever you are. 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="popularGuidesPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="popularGuidesNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="popularGuidesSliderContainer">
+                <div class="slider-track" id="popularGuidesSliderTrack">
+                    <!-- Guide 1: Around Indonesia Guide -->
+                    <div class="guide-card">
+                        <div class="guide-image-container">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=240&fit=crop" alt="Around Indonesia Guide" class="guide-image">
+                        </div>
+                        <div class="guide-content">
+                            <h3>Around Indonesia Guide</h3>
+                            <p>Your ultimate dining guide across Indonesia</p>
+                        </div>
+                    </div>
+
+                    <!-- Guide 2: Steak Guide -->
+                    <div class="guide-card">
+                        <div class="guide-image-container">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=240&fit=crop" alt="Steak Guide" class="guide-image">
+                        </div>
+                        <div class="guide-content">
+                            <h3>Steak Guide</h3>
+                            <p>The next time you're craving some juicy, tender beef, head down to one of these restaurants to curb them</p>
+                        </div>
+                    </div>
+
+                    <!-- Guide 3: Japanese Guide -->
+                    <div class="guide-card">
+                        <div class="guide-image-container">
+                            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=240&fit=crop" alt="Japanese Guide" class="guide-image">
+                        </div>
+                        <div class="guide-content">
+                            <h3>Japanese Guide</h3>
+                            <p>Your fix for sushi, sashimi, ramen, yakitori and more</p>
+                        </div>
+                    </div>
+
+                    <!-- Guide 4: Buffet Guide -->
+                    <div class="guide-card">
+                        <div class="guide-image-container">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=240&fit=crop" alt="Buffet Guide" class="guide-image">
+                        </div>
+                        <div class="guide-content">
+                            <h3>Buffet Guide</h3>
+                            <p>Whether you're a born-and-bred, or an adopted member of the Indonesia family, buffets are a rite of...</p>
+                        </div>
+                    </div>
+
+                    <!-- Guide 5: Street Food Guide -->
+                    <div class="guide-card">
+                        <div class="guide-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="Street Food Guide" class="guide-image">
+                        </div>
+                        <div class="guide-content">
+                            <h3>Street Food Guide</h3>
+                            <p>Discover the best street food experiences across Jakarta's vibrant neighborhoods</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="popularGuidesMobileDots"></div>
+        </div>
+    </section>
+
+    <!-- Dine, Save & Reserve Section -->
+    <section class="dine-save-section">
+        <div class="dine-save-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">Dine, Save & Reserve</h2>
+                    <p class="section-subtitle">
+                        Deals made easy 
+                        <a href="#" class="see-more-link">See more ›</a>
+                    </p>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-btn prev-btn" id="dineSavePrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" id="dineSaveNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="slider-container" id="dineSaveSliderContainer">
+                <div class="slider-track" id="dineSaveSliderTrack">
+                    <!-- Deal 1: Ruth's Chris Steak House -->
+                    <div class="deal-card">
+                        <div class="deal-image-container">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=240&fit=crop" alt="Ruth's Chris Steak House" class="deal-image">
+                            <div class="discount-badge">-11%</div>
+                        </div>
+                        <div class="deal-content">
+                            <h3>Ruth's Chris Steak House</h3>
+                            <div class="deal-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kuningan</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <span class="current-price">Rp445.000</span>
+                                <span class="original-price">Rp500.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 2: AMUZ Gourmet Restaurant -->
+                    <div class="deal-card">
+                        <div class="deal-image-container">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=240&fit=crop" alt="AMUZ Gourmet Restaurant" class="deal-image">
+                            <div class="discount-badge">-12%</div>
+                        </div>
+                        <div class="deal-content">
+                            <h3>AMUZ Gourmet Restaurant</h3>
+                            <div class="deal-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>SCBD</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <span class="current-price">Rp440.000</span>
+                                <span class="original-price">Rp500.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 3: Fez Kinara Dining & Shisha Lounge -->
+                    <div class="deal-card">
+                        <div class="deal-image-container">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=240&fit=crop" alt="Fez Kinara Dining & Shisha Lounge" class="deal-image">
+                            <div class="discount-badge">-16%</div>
+                        </div>
+                        <div class="deal-content">
+                            <h3>Fez Kinara Dining & Shisha</h3>
+                            <div class="deal-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kemang</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <span class="current-price">Rp169.000</span>
+                                <span class="original-price">Rp200.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 4: Additional Deal -->
+                    <div class="deal-card">
+                        <div class="deal-image-container">
+                            <img src="/Chope_Group5_FIX/chope/assets/premium_dining_experience.avif" alt="Premium Dining" class="deal-image">
+                            <div class="discount-badge">-20%</div>
+                        </div>
+                        <div class="deal-content">
+                            <h3>Premium Dining Experience</h3>
+                            <div class="deal-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Menteng</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <span class="current-price">Rp320.000</span>
+                                <span class="original-price">Rp400.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 5: Another Deal -->
+                    <div class="deal-card">
+                        <div class="deal-image-container">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=240&fit=crop" alt="Fine Dining" class="deal-image">
+                            <div class="discount-badge">-15%</div>
+                        </div>
+                        <div class="deal-content">
+                            <h3>Fine Dining Restaurant</h3>
+                            <div class="deal-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Senayan</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <span class="current-price">Rp255.000</span>
+                                <span class="original-price">Rp300.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Dots Indicator -->
+            <div class="mobile-dots" id="dineSaveMobileDots"></div>
+        </div>
+    </section>
+
+    <!-- Restaurant Promotion Section -->
+    <section class="restaurant-promo">
+        <div class="promo-container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h2 class="promo-title">Take your restaurant to the next level</h2>
+                    <p class="promo-subtitle">Chope's solutions power over 5,000+ restaurants in Asia.</p>
+                    <button class="promo-btn">Find Out More</button>
+                </div>
+                
+                <div class="promo-visual">
+                    <div class="dashboard-mockup">
+                        <!-- Browser window frame -->
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <div class="browser-bar">
+                                    <div class="address-bar"></div>
+                                </div>
+                                <div class="browser-controls">
+                                    <div class="control-btn"></div>
+                                    <div class="control-btn"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Dashboard content -->
+                            <div class="dashboard-content">
+                                <!-- Top metrics -->
+                                <div class="metrics-row">
+                                    <div class="metric-card">
+                                        <div class="metric-line"></div>
+                                        <div class="metric-value"></div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-line"></div>
+                                        <div class="metric-value"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Charts section -->
+                                <div class="charts-section">
+                                    <div class="chart-container">
+                                        <div class="bar-chart">
+                                            <div class="bar" style="height: 60%"></div>
+                                            <div class="bar" style="height: 80%"></div>
+                                            <div class="bar" style="height: 45%"></div>
+                                            <div class="bar" style="height: 90%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pie-chart">
+                                        <div class="pie-slice slice-1"></div>
+                                        <div class="pie-slice slice-2"></div>
+                                        <div class="pie-slice slice-3"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Data rows -->
+                                <div class="data-rows">
+                                    <div class="data-row">
+                                        <div class="data-icon teal"></div>
+                                        <div class="data-text"></div>
+                                        <div class="data-value"></div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-icon blue"></div>
+                                        <div class="data-text"></div>
+                                        <div class="data-value"></div>
+                                    </div>
+                                    <div class="data-row">
+                                        <div class="data-icon green"></div>
+                                        <div class="data-text"></div>
+                                        <div class="data-value"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Bottom section -->
+                                <div class="bottom-section">
+                                    <div class="progress-bars">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 70%"></div>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="action-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section - Insert this before the footer -->
+    <section class="partners-section">
+        <div class="partners-container">
+            <div class="partners-content">
+                <h2 class="partners-title">Our Partners</h2>
+                
+                <div class="partners-grid">
+                    <!-- Row 1 -->
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Tripadvisor.png" alt="TripAdvisor" class="partner-img tripadvisor">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Google.webp" alt="Google" class="partner-img google">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Ctrip.png" alt="Ctrip" class="partner-img ctrip">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Traveloka.webp" alt="Traveloka" class="partner-img traveloka">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_WhatsNew.jpg" alt="What's New Jakarta" class="partner-img whats-new">
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_JKTGO.jpg" alt="JKTGO" class="partner-img jktGO">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Manual.png" alt="Manual" class="partner-img Manual">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_PriceCut.jpg" alt="PriceCut" class="partner-img pricecut">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_GarudaMiles.png" alt="Garuda Miles" class="partner-img garuda">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Grab.png" alt="Grab" class="partner-img grab">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_MAP.png" alt="MAP" class="partner-img map">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Gojek.png" alt="Gojek" class="partner-img gojek">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_Tokopedia.jpg" alt="Tokopedia" class="partner-img tokopedia">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/Chope_Group5_FIX/chope/assets/Partner_XXI.png" alt="XXI" class="partner-img XXI">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- For Diners Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">For Diners</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Reservations</a></li>
+                        <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="#" class="footer-link">Deals</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Rewards</a></li>
+                    </ul>
+                </div>
+
+                <!-- For Restaurants Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">For Restaurants</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Chope For Restaurants</a></li>
+                    </ul>
+                </div>
+
+                <!-- More Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">More</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Chope</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Press</a></li>
+                    </ul>
+                </div>
+
+                <!-- Download our App Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Download our App</h3>
+                    <div class="app-buttons">
+                        <!-- App Store Button -->
+                        <a href="#" class="app-button app-store">
+                            <div class="app-icon">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <div class="app-text">
+                                <div class="app-subtitle">Download on the</div>
+                                <div class="app-title">App Store</div>
+                            </div>
+                        </a>
+
+                        <!-- Google Play Button -->
+                        <a href="#" class="app-button google-play">
+                            <div class="app-icon">
+                                <i class="fab fa-google-play"></i>
+                            </div>
+                            <div class="app-text">
+                                <div class="app-subtitle">GET IT ON</div>
+                                <div class="app-title">Google Play</div>
+                            </div>
+                        </a>
+
+                        <!-- AppGallery Button -->
+                        <a href="#" class="app-button app-gallery">
+                            <div class="app-icon">
+                                <span class="gallery-icon">H</span>
+                            </div>
+                            <div class="app-text">
+                                <div class="app-subtitle">EXPLORE IT ON</div>
+                                <div class="app-title">AppGallery</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <!-- Copyright and Logo -->
+                    <div class="footer-copyright">
+                        <span class="copyright-text">© 2025</span>
+                        <div class="logo-section">
+                            <div class="chope-logo">
+                                <span class="logo-icon">C</span>
+                            </div>
+                            <span class="logo-text">with Grab</span>
+                        </div>
+                        <span class="rights-text">All Rights Reserved</span>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-section">
+                        <span class="follow-text">Follow Us</span>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-section">
+                        <h4 class="contact-title">Chope Customer Support Contact</h4>
+                        <p class="contact-text">
+                            For Chope Customer Support please fill in 
+                            <a href="#" class="contact-link">Contact Form</a> 
+                            or email support.id@chope.co.
+                        </p>
+                    </div>
+
+                    <div class="contact-section">
+                        <h4 class="contact-title">Service Contact Information for Consumer Complaints</h4>
+                        <p class="contact-text">
+                            Direktorat Jenderal Perlindungan Konsumen dan Tertib Niaga, Kementerian Perdagangan, Republik Indonesia
+                        </p>
+                        <p class="contact-text">WhatsApp Ditjen PKTN: 0853-1111-1010</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Chope_Group5_FIX/chope/js/script.js"></script>
+</body>
+</html>
+
+

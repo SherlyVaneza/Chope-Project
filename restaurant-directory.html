@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Directory - Chope with Grab</title>
+    <link rel="stylesheet" href="/Chope_Group5_FIX/chope/css/restaurant-directory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <span class="chope">Chope</span>
+                <span style="color: #666;">with</span>
+                <span class="grab">Grab</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem; color: #666;"></i>
+            </div>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for something yummy">
+            </div>
+
+            <div class="header-right">
+                <button class="auth-btn">
+                    <i class="fas fa-user"></i>
+                    Sign Up or Login
+                </button>
+                <div class="location-selector">
+                    <span>Jakarta</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="nav-menu-container">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Restaurant Directory</a></li>
+                <li><a href="#">Exclusive Discounts</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Rewards</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <!-- Cuisine Filter -->
+            <div class="filter-section">
+                <div class="filter-header">Any Cuisine</div>
+                <div class="filter-content">
+                    <div class="filter-group">
+                        <div class="filter-title">
+                            I'm hungry for:
+                            <a href="#" class="clear-link" onclick="clearCuisineFilters()">Select All</a>
+                        </div>
+                        <div class="checkbox-grid" id="cuisineFilters">
+                            <!-- Cuisine checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="filter-section">
+                <div class="filter-header">Any Location</div>
+                <div class="filter-content">
+                    <div class="filter-group">
+                        <div class="filter-title">
+                            Around:
+                            <a href="#" class="clear-link" onclick="clearLocationFilters()">Select All</a>
+                        </div>
+                        <div class="checkbox-grid" id="locationFilters">
+                            <!-- Location checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <!-- Additional Filters -->
+            <div class="filter-section">
+                <div class="filter-header">Filters</div>
+                <div class="filter-content">
+                    <div class="filter-group">
+                        <div class="filter-title">
+                            Good For
+                            <a href="#" class="clear-link" onclick="clearGoodForFilters()">Clear >></a>
+                        </div>
+                        <div class="checkbox-grid" id="goodForFilters">
+                            <!-- Good For checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <div class="filter-title">
+                            Others
+                            <a href="#" class="clear-link" onclick="clearOthersFilters()">Clear >></a>
+                        </div>
+                        <div class="checkbox-grid" id="othersFilters">
+                            <!-- Others checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Restaurant Grid -->
+        <section class="restaurant-content">
+            <!-- Special Offers -->
+            <div class="offers-section">
+                <div class="offer-badge offers">
+                    <i class="fas fa-tag"></i>
+                    Offers
+                </div>
+                <div class="offer-badge diners">
+                    <i class="fas fa-trophy"></i>
+                    Diners' Choice Winner
+                </div>
+                <div class="offer-badge new">
+                    <i class="fas fa-star"></i>
+                    New On Chope
+                </div>
+                <div class="offer-badge redeem">
+                    <i class="fas fa-coins"></i>
+                    Redeem Chope-Dollars
+                </div>
+            </div>
+
+            <div class="restaurant-grid" id="restaurantGrid">
+                <!-- Loading state -->
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/Chope_Group5_FIX/chope/js/restaurant-directory.js"></script>
+</body>
+</html>

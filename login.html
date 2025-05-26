@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Chope with Grab</title>
+    <link rel="stylesheet" href="/Chope_Group5_FIX/chope/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Background Food Icons -->
+    <div class="food-icons-bg">
+        <i class="fas fa-pizza-slice bg-icon-1"></i>
+        <i class="fas fa-hamburger bg-icon-2"></i>
+        <i class="fas fa-ice-cream bg-icon-3"></i>
+        <i class="fas fa-cookie-bite bg-icon-4"></i>
+        <i class="fas fa-hotdog bg-icon-5"></i>
+        <i class="fas fa-drumstick-bite bg-icon-6"></i>
+        <i class="fas fa-coffee bg-icon-7"></i>
+        <i class="fas fa-apple-alt bg-icon-8"></i>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="back-home">
+        <a href="index.html">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome Back to Chope!</h1>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Username / Email</label>
+                <input type="text" id="loginEmail" name="loginEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+            </div>
+
+            <div class="form-options">
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="auth-switch">
+                <p>Don't have an account?</p>
+                <a href="register.html">Register Now</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="/Chope_Group5_FIX/chope/js/login.js"></script>
+</body>
+</html>
